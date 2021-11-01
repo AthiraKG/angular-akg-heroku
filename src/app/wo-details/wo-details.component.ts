@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms'; 
+import * as LCC from 'lightning-container';
 
 @Component({
   selector: 'app-wo-details',
@@ -18,10 +19,10 @@ export class WoDetailsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    /*LCC.addMessageHandler(function(message) {
+    LCC.addMessageHandler(function(message) {
       console.log(message.value);
      // document.getElementById('messageFromLC').value = message.value;
-    });*/
+    });
 
     this.formData=new FormGroup({
       WONumber:new FormControl(""),
@@ -43,10 +44,10 @@ onClickSubmit(data) {  this.WONumber=data.WONumber;
   "Duration":this.duration
   };
   
-  /*LCC.sendMessage({
+  LCC.sendMessage({
     event: "Lccevent",
     value:JSON.stringify(myData)
-  });*/
+  });
 }
 
 }
