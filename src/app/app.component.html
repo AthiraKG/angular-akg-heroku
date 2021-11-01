@@ -1,52 +1,17 @@
-import { Component,OnInit } from '@angular/core';
+<div> 
+    <form [formGroup]="formData" (ngSubmit)="onClickSubmit(formData.value)" > 
+        <p>WO Number:<input  type= "text" ng-readonly="true"  name="WO Number" placeholder="WONumber" formControlName = "WONumber"> </p>
 
-import { FormGroup, FormControl,ReactiveFormsModule } from '@angular/forms';
-//import * as LCC from 'lightning-container';
+        <p>Work Type: <input type= "text"  name="WorkType" placeholder="WorkType" formControlName = "WorkType"> </p>     
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent implements OnInit {
-  formData;
-  WONumber;
-  workType;
-  status;
-  description;
-  duration;
+        <p>Status <input type= "text"  name="Status" placeholder="Status" formControlName = "Status"> </p>     
 
-  constructor() { }
+        <p>Description <input type= "text"  name="Description" placeholder="Description" formControlName = "Description"> </p>     
 
-  ngOnInit(): void {
-    /*LCC.addMessageHandler(function(message) {
-      console.log(message.value);
-     // document.getElementById('messageFromLC').value = message.value;
-    });*/
+        <p>Duration <input type= "text"  name="Duration" placeholder="Duration" formControlName = "Duration"> </p>  
 
-    this.formData=new FormGroup({
-      WONumber:new FormControl(""),
-      WorkType:new FormControl(""),
-      Status:new FormControl(""),
-      Description:new FormControl(""),
-      Duration:new FormControl("")
-    });
-  }
-onClickSubmit(data) {  this.WONumber=data.WONumber;
-  this.workType=data.WorkType;
-  this.status=data.Status;
-  this.description=data.Description;
-  this.duration=data.Duration;
-  const myData={"WONumber":this.WONumber,
-  "WorkType":this.workType,
-  "Status":this.status,
-  "Description":this.description,
-  "Duration":this.duration
-  };
-  
-  /*LCC.sendMessage({
-    event: "Lccevent",
-    value:JSON.stringify(myData)
-  });*/
-}
-}
+        <p><input type="submit"  value="Click here"> </p>
+        <br/>   
+    </form>
+</div> 
+<p> Textbox result is: {{WONumber}} </p>
